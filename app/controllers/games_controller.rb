@@ -1,35 +1,37 @@
 class GamesController < ApplicationController
   # Add your GamesController code here
-    def index 
+    def index
       @games = Game.all
       render json: @games
-    end 
+    end
 
-    def new 
+    def new
       @game = Game.new
-    end 
+    end
 
-    def create 
+    def create
       @game = Game.create(game_params)
       render json: @game, status: 2017
-    end 
+    end
 
-    def show 
+    def show
       @game = Game.find(params[:id])
       respond_to do |format|
         format.html { render :show }
         format.json { render json: @game }
-      end 
+      end
 
-      def update 
+      def update
         @game = Game.find_by(params[:id])
+        @game.state = params[:state]
+        @game.save 
         render json: @game 
-    end 
+    end
 
-private 
+private
 
     def game_params
-      params.require(:game).permit()
-    end 
+      params.require(:game).permit(:state)
+    end
 
 end
