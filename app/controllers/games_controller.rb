@@ -5,10 +5,6 @@ class GamesController < ApplicationController
       render json: @games
     end
 
-    def new
-      @game = Game.new
-    end
-
     def create
       @game = Game.create(game_params)
       render json: @game, status: 2017
@@ -20,7 +16,12 @@ class GamesController < ApplicationController
         format.html { render :show }
         format.json { render json: @game }
       end
-  end
+
+      def update
+        @game.update(game_params)
+        render json: @game, status: 204
+    end
+
 
 private
 
