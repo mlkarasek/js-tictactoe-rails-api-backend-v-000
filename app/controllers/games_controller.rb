@@ -28,3 +28,4 @@ private
       params.require(:game).permit(:state)
     end
   end
+end 
