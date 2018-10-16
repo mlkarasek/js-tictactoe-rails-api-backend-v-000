@@ -22,7 +22,6 @@ class GamesController < ApplicationController
         render json: @game, status: 204
     end
 
-
 private
 
     def game_params
