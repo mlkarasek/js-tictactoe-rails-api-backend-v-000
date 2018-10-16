@@ -20,10 +20,11 @@ class GamesController < ApplicationController
         format.html { render :show }
         format.json { render json: @game }
       end
-end 
+end
 
 private
 
     def game_params
       params.require(:game).permit(:state)
     end
+  end 
