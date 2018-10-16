@@ -24,7 +24,7 @@ class GamesController < ApplicationController
       def update
         @game = Game.find_by(params[:id])
         @game.state = params[:state]
-        @game.save 
+        @game.save
         render json: @game
     end
 
@@ -33,4 +33,3 @@ private
     def game_params
       params.require(:game).permit(:state)
     end
-end
