@@ -20,13 +20,7 @@ class GamesController < ApplicationController
         format.html { render :show }
         format.json { render json: @game }
       end
-
-      def update
-        @game = Game.find_by(params[:id])
-        @game.state = params[:state]
-        @game.save
-        render json: @game
-    end
+end 
 
 private
 
