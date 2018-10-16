@@ -25,7 +25,7 @@ class GamesController < ApplicationController
         @game = Game.find_by(params[:id])
         @game.state = params[:state]
         @game.save 
-        render json: @game 
+        render json: @game
     end
 
 private
